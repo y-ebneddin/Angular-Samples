@@ -1,78 +1,75 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl } from "@angular/forms";
-import { MatTableDataSource } from "@angular/material";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: "table-filtering",
-  templateUrl: "./table-filtering.html",
-  styleUrls: ["./table-filtering.css"]
+  selector: 'table-filtering',
+  templateUrl: './table-filtering.html',
+  styleUrls: ['./table-filtering.css'],
 })
 export class TableFilteringComponent implements OnInit {
   columns = [
     {
-      columnDef: "name",
-      header: "Tenant Name",
+      columnDef: 'name',
+      header: 'Tenant Name',
       displayFilter: true,
-      cell: (element: any) => `${element.name}`
+      cell: (element: any) => `${element.name}`,
     },
     {
-      columnDef: "id",
-      header: "ID",
+      columnDef: 'id',
+      header: 'ID',
       displayFilter: true,
-      cell: (element: any) => `${element.id}`
+      cell: (element: any) => `${element.id}`,
     },
     {
-      columnDef: "colour",
-      header: "Favourite Colour",
+      columnDef: 'colour',
+      header: 'Favourite Colour',
       displayFilter: true,
-      cell: (element: any) => `${element.colour}`
+      cell: (element: any) => `${element.colour}`,
     },
     {
-      columnDef: "pet",
-      header: "Pet",
+      columnDef: 'pet',
+      header: 'Pet',
       displayFilter: false,
-      cell: (element: any) => `${element.pet}`
-    }
+      cell: (element: any) => `${element.pet}`,
+    },
   ];
-  displayedColumns = this.columns.map(c => c.columnDef);
+  displayedColumns = this.columns.map((c) => c.columnDef);
   people = [
     {
-      name: "John",
+      name: 'John',
       id: 1,
-      colour: "Green",
-      pet: "Dog"
+      colour: 'Green',
+      pet: 'Dog',
     },
     {
-      name: "Sarah",
+      name: 'Sarah',
       id: 2,
-      colour: "Purple",
-      pet: "Cat"
+      colour: 'Purple',
+      pet: 'Cat',
     },
     {
-      name: "Lindsay",
+      name: 'Lindsay',
       id: 3,
-      colour: "Blue",
-      pet: "Lizard"
+      colour: 'Blue',
+      pet: 'Lizard',
     },
     {
-      name: "Megan",
+      name: 'Megan',
       id: 4,
-      colour: "Orange",
-      pet: "Dog"
-    }
+      colour: 'Orange',
+      pet: 'Dog',
+    },
   ];
-  nameKey = "name";
-  petKey = "pet";
-  colourKey = "colour";
-  idKey = "id";
+
+  // nameKey = 'name';
+  // petKey = 'pet';
+  // colourKey = 'colour';
+  // idKey = 'id';
+
   dataSource = new MatTableDataSource();
-  columnsToDisplay = ["name", "id", "favouriteColour", "pet"];
-  filterValues = {
-    name: "",
-    id: "",
-    colour: "",
-    pet: ""
-  };
+  columnsToDisplay = ['name', 'id', 'favouriteColour', 'pet'];
+  filterValues = { name: '', id: '', colour: '', pet: '' };
   filterForm;
 
   constructor(private fb: FormBuilder) {
@@ -82,25 +79,22 @@ export class TableFilteringComponent implements OnInit {
 
   ngOnInit() {
     this.filterForm = this.fb.group({
-      name: [""],
-      id: [""],
-      colour: [""],
-      pet: [""]
+      name: [''],
+      id: [''],
+      colour: [''],
+      pet: [''],
     });
-    this.filterForm.valueChanges.subscribe(value => {
+    this.filterForm.valueChanges.subscribe((value) => {
       this.dataSource.filter = JSON.stringify(value);
     });
   }
 
   createFilter(): (data: any, filter: string) => boolean {
-    let filterFunction = function(data, filter): boolean {
+    let filterFunction = function (data, filter): boolean {
       let searchTerms = JSON.parse(filter);
       return (
         data.name.toLowerCase().indexOf(searchTerms.name) !== -1 &&
-        data.id
-          .toString()
-          .toLowerCase()
-          .indexOf(searchTerms.id) !== -1 &&
+        data.id.toString().toLowerCase().indexOf(searchTerms.id) !== -1 &&
         data.colour.toLowerCase().indexOf(searchTerms.colour) !== -1 &&
         data.pet.toLowerCase().indexOf(searchTerms.pet) !== -1
       );
