@@ -66,9 +66,9 @@ export class TableFilteringComponent implements OnInit {
   // petKey = 'pet';
   // colourKey = 'colour';
   // idKey = 'id';
+  // columnsToDisplay = ['name', 'id', 'favouriteColour', 'pet'];
 
   dataSource = new MatTableDataSource();
-  columnsToDisplay = ['name', 'id', 'favouriteColour', 'pet'];
   filterValues = { name: '', id: '', colour: '', pet: '' };
   filterForm;
 
