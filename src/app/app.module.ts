@@ -24,9 +24,9 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [AppComponent, HelloComponent, TableFilteringComponent],
-  bootstrap: [AppComponent],
+  bootstrap: [TableFilteringComponent],
 })
 export class AppModule {}
