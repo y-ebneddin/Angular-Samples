@@ -1,11 +1,8 @@
 <table mat-table [dataSource]="dataSource">
 	<ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
-
 		<mat-header-cell *cdkHeaderCellDef>
-			
 			<mat-label class="header" *ngIf="!column.displayFilter">{{ column.header }}</mat-label>
 			<mat-form-field class="filter" *ngIf="column.displayFilter" floatLabel="never">
-
 				<mat-label class="header" >{{ column.header }}</mat-label>
 				<input matInput [formControl]="filterForm.get(column.columnDef)">
       </mat-form-field>
