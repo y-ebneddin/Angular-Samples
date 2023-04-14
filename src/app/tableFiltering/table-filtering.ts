@@ -67,12 +67,13 @@ export class TableFilteringComponent implements OnInit {
   // colourKey = 'colour';
   // idKey = 'id';
   // columnsToDisplay = ['name', 'id', 'favouriteColour', 'pet'];
+  // filterValues = { name: '', id: '', colour: '', pet: '' };
 
   dataSource = new MatTableDataSource();
-  filterValues = { name: '', id: '', colour: '', pet: '' };
   filterForm;
 
   constructor(private fb: FormBuilder) {
+    console.log(JSON.stringify(this.people));
     this.dataSource.data = this.people;
     this.dataSource.filterPredicate = this.createFilter();
   }
