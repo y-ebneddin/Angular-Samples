@@ -1,0 +1,37 @@
+.button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dialog-width {
+  width: 500px;
+}
+
+.dialog-header, .dialog-info, .dialog-confirm, .dialog-warning, .dialog-error
+{
+  color: white;
+  margin-right: 20px;
+}
+
+.dialog-info
+{
+  background-color: #4285F4;
+}
+
+.dialog-confirm
+{
+  background-color: #34A853;
+}
+
+.dialog-warning
+{
+  background-color: #FBBc05;
+}
+
+.dialog-error
+{
+  background-color: #EA4335;
+}
+
+
