@@ -1,12 +1,9 @@
- 
-export enum DialogType
-{
+export enum DialogType {
   Info,
   Warning,
   Error,
-  Confirm
+  Confirm,
 }
-  
 
 // *******************************************************************************************************************
 //  You can use hybrid buttons in code. Ex.: { dialogButtons: DialogButton.Abort | DialogButton.Retry }
@@ -24,7 +21,7 @@ export enum DialogButton {
   YesNo = Yes | No,
   YesNoCancel = Yes | No | Cancel,
   OkCancel = OK | Cancel,
-  AbortRetry = Abort | Ignore,
+  AbortIgnore = Abort | Ignore,
   AbortRetryIgnore = Abort | Retry | Ignore,
 }
 
@@ -44,4 +41,3 @@ export enum DialogResult {
   Ignore,
   Confirm,
 }
-  
