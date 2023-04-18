@@ -83,6 +83,18 @@ export class DialogBoxComponent implements OnInit {
 
   ngOnInit() {}
 
+  public GetDialogButtons(): DialogButton[] {
+    return Object.values(DialogButton)
+      .filter((item) => {
+        return (
+          this.checkButtons(Number(item)) && // check in selected buttons list
+          Number(item) != 0 &&
+          (Number(item) & (Number(item) - 1)) == 0
+        ); // check single values
+      })
+      .map((p) => p as DialogButton);
+  }
+
   public get DialogButton() {
     return DialogButton;
   }
