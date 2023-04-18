@@ -130,6 +130,12 @@ export class DialogBoxComponent implements OnInit {
       case DialogButton.Yes:
         this.dialogRef.close(DialogResult.Yes);
         break;
+      case DialogButton.Confirm:
+          this.dialogRef.close(DialogResult.OK);
+        break;
+      case DialogButton.Continue:
+          this.dialogRef.close(DialogResult.Continue);
+          break;
       default:
         this.dialogRef.close(DialogResult.None);
         break;

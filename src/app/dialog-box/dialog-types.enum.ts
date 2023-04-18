@@ -1,12 +1,10 @@
- 
-export enum DialogType
-{
+export enum DialogType {
   Info,
   Warning,
   Error,
-  Confirm
+  Confirm,
 }
-  
+
 export enum DialogButton {
   Yes = 1 << 1,
   No = 1 << 2,
@@ -15,9 +13,11 @@ export enum DialogButton {
   Retry = 1 << 5,
   Ignore = 1 << 6,
   OK = 1 << 7,
+  Confirm = 1 << 8,
+  Continue = 1 << 9,
   YesNo = Yes | No,
   YesNoCancel = Yes | No | Cancel,
-  OkCancel = OK | Cancel
+  OkCancel = OK | Cancel,
 }
 
 export enum DialogResult {
@@ -28,6 +28,7 @@ export enum DialogResult {
   Abort,
   Retry,
   Ignore,
-  OK
+  OK,
+  Confirm,
+  Continue,
 }
-  
