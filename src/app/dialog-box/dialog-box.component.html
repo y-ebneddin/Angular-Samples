@@ -16,7 +16,9 @@
 
   <div mat-dialog-actions class="button-container">
       <ng-container >
-        <button *ngFor="let button of GetDialogButtons()" class="update-button" color="primary" mat-raised-button (click)="onClick(button)">{{ DialogButton[button] | translate}}</button>
+        <button *ngFor="let button of getDialogButtons()" class="update-button" color="primary" mat-raised-button (click)="onClick(button)">
+          {{ DialogButton[button] | translate}}
+        </button>
       </ng-container>
   </div>
 </div>
